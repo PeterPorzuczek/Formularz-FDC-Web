@@ -1051,6 +1051,21 @@ $.extend($.validator.messages, {
 
 //Polyfills
 
+if (!String.prototype.includes) {
+  String.prototype.includes = function(search, start) {
+    'use strict';
+    if (typeof start !== 'number') {
+      start = 0;
+    }
+    
+    if (start + search.length > this.length) {
+      return false;
+    } else {
+      return this.indexOf(search, start) !== -1;
+    }
+  };
+}
+
 Array.prototype.forEach = function (callback, thisArg) {
     if (typeof callback !== "function") {
         throw new TypeError(callback + " is not a function!");
