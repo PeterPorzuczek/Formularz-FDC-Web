@@ -700,7 +700,7 @@ const generationSection = (num) =>  ([
                     }
 ]);
 
-const xlsxAddress = (n) => ("./assets/SourceXLSX/FormularzPusty-" + n + ".xlsx");
+const xlsxAddress = (n) => ("assets/SourceXLSX/FormularzPusty-" + n + ".xlsx");
 
 var Promise = XlsxPopulate.Promise,
     xlsxOrgResponse,
