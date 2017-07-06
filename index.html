@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Formularz FDC</title>
+
+        <link rel="stylesheet" href='./css/app.css'/>
+
+        <link rel="stylesheet" href='./css/bootstrap-formform/select2.min.css'/>
+        <link rel="stylesheet" href='./css/bootstrap-formform/select2-bootstrap.min.css'/>
+    </head>
+
+    <body onload="start()">
+
+        <div class="py-5">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="row">
+                        
+                        <div class="col-md-2" >
+                            <div id="map-container" class="map-container"></div>
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <div class="content-container">
+
+                                <div id="head-container">
+                                    <div class="py-3">
+                                        <h1 id="textTitle" class="display-3"></h1>
+                                    </div>
+                                    <div class="py-1">
+                                        <p id="textDescription" class=" text-justify" style="font-size: 1em;"></p>
+                                    </div>
+                                </div>
+
+                                <div id="relatives-count-container">
+                                    <div class="py-3">
+                                        <form id="inputRelativesCountForm"></form>
+                                    </div>
+                                </div>
+
+                                <div id="generated-form-container">
+                                    <div class="py-3">
+                                        <form id="generatedForm"></form>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-2"></div>
+
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+    <script type="text/javascript" src="./js/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="./js/jquery/additional-methods.min.js"></script>
+
+    <script type="text/javascript" src="./js/bootstrap-formform/underscore-min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap-formform/select2.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap-formform/bootstrap-formform.js"></script>
+
+    <script type="text/javascript" src="./js/xlsx-populate/xlsx-populate.js"></script>
+
+    <script type="text/javascript" src="./js/app.js"></script>
+
+    </body>
+
+</html>
