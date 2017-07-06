@@ -1,6 +1,12 @@
 var underscore = _;
 
-var columns = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH"];
+var columns = [ "A", "B", "C", "D", "E", 
+                "F", "G", "H", "I", "J", 
+                "K", "L", "M", "N", "O", 
+                "P", "Q", "R", "S", "T", 
+                "U", "V", "W", "X", "Y", "Z", 
+                "AA", "AB", "AC", "AD", 
+                "AE", "AF", "AG", "AH" ];
 
 var containers = {
     "head": "head-container",
@@ -23,12 +29,47 @@ var yesNoOptions = {
     "yes": { name: "Tak", value: "tak" },
     "no": { name: "Nie", value: "nie" }
 };
-var idOptions = [{ name: "Pesel", value: "pesel", id: "" }, { name: "Dowód osobisty", value: "dow. os.", id: "1" }, { name: "Paszport", value: "paszport", id: "2" }];
+var idOptions = [   { name: "Pesel", value: "pesel", id: "" }, 
+                    { name: "Dowód osobisty", value: "dow. os.", id: "1" }, 
+                    { name: "Paszport", value: "paszport", id: "2" }    
+                ];  
 
-var relationshipOptions = [{ name: "Małżonek", code: "01" }, { name: "Dziecko własne, przysposobione lub dziecko małżonka", code: "11" }, { name: "Wnuk albo dziecko obce, dla którego ustanowiono opiekę, albo dziecko obce w ramach rodziny zastępczej lub rodzinnego domu dziecka", code: "21" }, { name: "Matka", code: "30" }, { name: "Ojciec", code: "31" }, { name: "Macocha", code: "32" }, { name: "Ojczym", code: "33" }, { name: "Babka", code: "40" }, { name: "Dziadek", code: "41" }, { name: "Osoby przysposabiające osoby ubezpieczone", code: "50" }, { name: "Inni wstępni pozostający z ubezpieczonym we współnym gospodarstwie domowym", code: "60" }];
-var disabilityOptions = [{ name: "Nie posiada orzeczenia o niepełnosprawności", code: "0" }, { name: "Posiada orzeczenie o lekkim stopniu niepełnosprawności", code: "1" }, { name: "Posiada orzeczenie o umiarkowanym stopniu niepełnosprawności", code: "2" }, { name: "Posiada orzeczenie o znacznym stopniu niepełnosprawności", code: "3" }, { name: "Posiada orzeczenie o niepełnosprawności wydawane osobom do 16 roku życia", code: "4" }];
+var relationshipOptions = [ { name: "Małżonek", code: "01" }, 
+                            { name: "Dziecko własne, przysposobione lub dziecko małżonka", code: "11" }, 
+                            { name: "Wnuk albo dziecko obce, dla którego ustanowiono opiekę, albo dziecko obce w ramach rodziny zastępczej lub rodzinnego domu dziecka", code: "21" }, 
+                            { name: "Matka", code: "30" }, 
+                            { name: "Ojciec", code: "31" }, 
+                            { name: "Macocha", code: "32" }, 
+                            { name: "Ojczym", code: "33" }, 
+                            { name: "Babka", code: "40" }, 
+                            { name: "Dziadek", code: "41" }, 
+                            { name: "Osoby przysposabiające osoby ubezpieczone", code: "50" }, 
+                            { name: "Inni wstępni pozostający z ubezpieczonym we współnym gospodarstwie domowym", code: "60" }  
+                          ];
+var disabilityOptions = [   { name: "Nie posiada orzeczenia o niepełnosprawności", code: "0" }, 
+                            { name: "Posiada orzeczenie o lekkim stopniu niepełnosprawności", code: "1" }, 
+                            { name: "Posiada orzeczenie o umiarkowanym stopniu niepełnosprawności", code: "2" }, 
+                            { name: "Posiada orzeczenie o znacznym stopniu niepełnosprawności", code: "3" }, 
+                            { name: "Posiada orzeczenie o niepełnosprawności wydawane osobom do 16 roku życia", code: "4" }     
+                        ];
 
-var voivodeshipOptions = [{ name: "Mazowieckie", value: "mazowieckie" }, { name: "Śląskie", value: "śląskie" }, { name: "Wielkopolskie", value: "wielkopolskie" }, { name: "Małopolskie", value: "małopolskie" }, { name: "Dolnośląskie", value: "dolnośląskie" }, { name: "Łódzkie", value: "łódzkie" }, { name: "Pomorskie", value: "pomorskie" }, { name: "Lubelskie", value: "lubelskie" }, { name: "Podkarpackie", value: "podkarpackie" }, { name: "Kujawsko-pomorskie", value: "kujawsko-pomorskie" }, { name: "Zachodniopomorskie", value: "zachodniopomorskie" }, { name: "Warmińsko-mazurskie", value: "warmińsko-mazurskie" }, { name: "Świętokrzyskie", value: "świętokrzyskie" }, { name: "Podlaskie", value: "podlaskie" }, { name: "Lubuskie", value: "lubuskie" }, { name: "Opolskie", value: "opolskie" }];
+var voivodeshipOptions = [  { name: "Mazowieckie", value: "mazowieckie" }, 
+                            { name: "Śląskie", value: "śląskie" }, 
+                            { name: "Wielkopolskie", value: "wielkopolskie" }, 
+                            { name: "Małopolskie", value: "małopolskie" }, 
+                            { name: "Dolnośląskie", value: "dolnośląskie" }, 
+                            { name: "Łódzkie", value: "łódzkie" }, 
+                            { name: "Pomorskie", value: "pomorskie" }, 
+                            { name: "Lubelskie", value: "lubelskie" }, 
+                            { name: "Podkarpackie", value: "podkarpackie" }, 
+                            { name: "Kujawsko-pomorskie", value: "kujawsko-pomorskie" }, 
+                            { name: "Zachodniopomorskie", value: "zachodniopomorskie" }, 
+                            { name: "Warmińsko-mazurskie", value: "warmińsko-mazurskie" }, 
+                            { name: "Świętokrzyskie", value: "świętokrzyskie" }, 
+                            { name: "Podlaskie", value: "podlaskie" }, 
+                            { name: "Lubuskie", value: "lubuskie" }, 
+                            { name: "Opolskie", value: "opolskie" }     
+                        ];
 var formGroupIdPrefix = {
     "relativesCountSectionTitle": "relativesCountSectionTitleFormGroupID",
     "identificationSectionTitle": "identificationSectionTitleFormGroupID",
@@ -87,358 +128,358 @@ var textboxIdPrefix = {
 
 var relativesCountSection = function relativesCountSection(num) {
     return [{
-        "value": "Rozpocznij",
-        "type": "head",
-        "formId": "relativesCountSectionTitleFormGroupID" + num,
-        "num": num
-    }, {
-        "label": "Liczba członków rodziny zgłaszanych do ubezpieczenia zdrowotnego:",
-        "prefix": textboxIdPrefix.relativesCountSection + num,
-        "id": textboxIdPrefix.relativesCountSection + num,
-        "name": "relativesCountSectionTextboxNumber" + num,
-        "formId": "relativesCountSectionTextboxFormGroupID" + num,
-        "type": "number",
-        "minlength": 1,
-        "maxlength": 2,
-        "required": true,
-        "date": false,
-        "digits": true,
-        "min": 0,
-        "max": 21,
-        "num": num
-    }, {
-        "label": "Dalej",
-        "type": "submit",
-        "class": "btn btn-primary w-100"
-    }];
+                "value": "Rozpocznij",
+                "type": "head",
+                "formId": "relativesCountSectionTitleFormGroupID" + num,
+                "num": num
+            }, {
+                "label": "Liczba członków rodziny zgłaszanych do ubezpieczenia zdrowotnego:",
+                "prefix": textboxIdPrefix.relativesCountSection + num,
+                "id": textboxIdPrefix.relativesCountSection + num,
+                "name": "relativesCountSectionTextboxNumber" + num,
+                "formId": "relativesCountSectionTextboxFormGroupID" + num,
+                "type": "number",
+                "minlength": 1,
+                "maxlength": 2,
+                "required": true,
+                "date": false,
+                "digits": true,
+                "min": 0,
+                "max": 21,
+                "num": num
+            }, {
+                "label": "Dalej",
+                "type": "submit",
+                "class": "btn btn-primary w-100"
+            }];
 };
 
 var employeeIdentificationSection = function employeeIdentificationSection(num) {
     return [{
-        "value": num + ". DANE IDENTYFIKACYJNE OSOBY UBEZPIECZONEJ (PRACOWNIKA)",
-        "type": "head",
-        "class": "",
-        "formId": formGroupIdPrefix.identificationSectionTitle + num,
-        "num": num
-    }, {
-        "label": "Numer kontrolny pracownika:",
-        "prefix": textboxIdPrefix.employeeID,
-        "id": textboxIdPrefix.employeeID + num,
-        "name": "employeeIDTextboxNumber" + num,
-        "formId": formGroupIdPrefix.employeeID + num,
-        "type": "number",
-        "minlength": 5,
-        "maxlength": 5,
-        "required": true,
-        "date": false,
-        "digits": true,
-        "num": num
-    }, {
-        "label": "Imię pracownika:",
-        "prefix": textboxIdPrefix.employeeName,
-        "id": textboxIdPrefix.employeeName + num,
-        "name": "employeeNameTextboxNumber" + num,
-        "formId": formGroupIdPrefix.employeeName + num,
-        "type": "text",
-        "minlength": 0,
-        "maxlength": 29,
-        "required": true,
-        "date": false,
-        "digits": false,
-        "num": num
-    }, {
-        "label": "Nazwisko pracownika:",
-        "prefix": textboxIdPrefix.employeeSurname,
-        "id": textboxIdPrefix.employeeSurname + num,
-        "name": "employeeSurnameTextboxNumber" + num,
-        "formId": formGroupIdPrefix.employeeSurname + num,
-        "type": "text",
-        "minlength": 0,
-        "maxlength": 58,
-        "required": true,
-        "date": false,
-        "digits": false,
-        "num": num
-    }];
+                "value": num + ". DANE IDENTYFIKACYJNE OSOBY UBEZPIECZONEJ (PRACOWNIKA)",
+                "type": "head",
+                "class": "",
+                "formId": formGroupIdPrefix.identificationSectionTitle + num,
+                "num": num
+            }, {
+                "label": "Numer kontrolny pracownika:",
+                "prefix": textboxIdPrefix.employeeID,
+                "id": textboxIdPrefix.employeeID + num,
+                "name": "employeeIDTextboxNumber" + num,
+                "formId": formGroupIdPrefix.employeeID + num,
+                "type": "number",
+                "minlength": 5,
+                "maxlength": 5,
+                "required": true,
+                "date": false,
+                "digits": true,
+                "num": num
+            }, {
+                "label": "Imię pracownika:",
+                "prefix": textboxIdPrefix.employeeName,
+                "id": textboxIdPrefix.employeeName + num,
+                "name": "employeeNameTextboxNumber" + num,
+                "formId": formGroupIdPrefix.employeeName + num,
+                "type": "text",
+                "minlength": 0,
+                "maxlength": 29,
+                "required": true,
+                "date": false,
+                "digits": false,
+                "num": num
+            }, {
+                "label": "Nazwisko pracownika:",
+                "prefix": textboxIdPrefix.employeeSurname,
+                "id": textboxIdPrefix.employeeSurname + num,
+                "name": "employeeSurnameTextboxNumber" + num,
+                "formId": formGroupIdPrefix.employeeSurname + num,
+                "type": "text",
+                "minlength": 0,
+                "maxlength": 58,
+                "required": true,
+                "date": false,
+                "digits": false,
+                "num": num
+            }];
 };
 
 var relativeIdentificationSection = function relativeIdentificationSection(num) {
     return [{
-        "value": num + ". DANE O CZŁONKU RODZINY, UPRAWNIONYM DO ŚWIADCZEŃ Z UBEZPIECZENIA ZDROWOTNEGO",
-        "class": "",
-        "type": "head",
-        "formId": formGroupIdPrefix.relativeIdentificationSectionTitle + num
-    }, {
-        "label": "Imię członka rodziny:",
-        "prefix": textboxIdPrefix.relativeName,
-        "id": textboxIdPrefix.relativeName + num,
-        "name": "relativeNameTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeName + num,
-        "type": "text",
-        "minlength": 0,
-        "maxlength": 29,
-        "required": true,
-        "date": false,
-        "digits": false,
-        "num": num
-    }, {
-        "label": "Nazwisko członka rodziny:",
-        "prefix": textboxIdPrefix.relativeSurname,
-        "id": textboxIdPrefix.relativeSurname + num,
-        "name": "relativeSurnameTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeSurname + num,
-        "type": "text",
-        "minlength": 0,
-        "maxlength": 29,
-        "required": true,
-        "date": false,
-        "digits": false,
-        "num": num
-    }, {
-        "label": "Data urodzenia członka rodziny: (dd-mm-rrrr)",
-        "prefix": textboxIdPrefix.relativeBirth,
-        "id": textboxIdPrefix.relativeBirth + num,
-        "name": "relativeBirthTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeBirth + num,
-        "type": "text",
-        "minlength": 10,
-        "maxlength": 10,
-        "required": true,
-        "date": true,
-        "digits": false,
-        "num": num
-    }, {
-        "label": "Pozostaje we wspólnym gospodarstwie domowym z pracownikiem:",
-        "prefix": textboxIdPrefix.relativeCommonGround,
-        "id": textboxIdPrefix.relativeCommonGround + num,
-        "name": "relativeCommonGroundTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeCommonGround + num,
-        "required": true,
-        "choices": [["", ""], [yesNoOptions.yes.value, yesNoOptions.yes.name], [yesNoOptions.no.value, yesNoOptions.no.name]],
-        "type": "select",
-        "num": num
-    }, {
-        "label": "Czy członek rodziny posiada pesel:",
-        "prefix": textboxIdPrefix.relativePesel,
-        "id": textboxIdPrefix.relativePesel + num,
-        "name": "relativePeselTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativePesel + num,
-        "required": true,
-        "choices": [["", ""], [yesNoOptions.yes.value, yesNoOptions.yes.name], [yesNoOptions.no.value, yesNoOptions.no.name]],
-        "type": "select",
-        "num": num
-    }, {
-        "label": "Rodzaj identyfikacji:",
-        "prefix": textboxIdPrefix.relativeDocument1,
-        "id": textboxIdPrefix.relativeDocument1 + num,
-        "name": "relativeDocument1TextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeDocument1 + num,
-        "required": true,
-        "choices": [[idOptions[0].value, idOptions[0].name]],
-        "type": "select",
-        "num": num
-    }, {
-        "label": "Rodzaj identyfikacji:",
-        "prefix": textboxIdPrefix.relativeDocument2,
-        "id": textboxIdPrefix.relativeDocument2 + num,
-        "name": "relativeDocument2TextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeDocument2 + num,
-        "required": true,
-        "choices": [["", ""], [idOptions[1].value, idOptions[1].name], [idOptions[2].value, idOptions[2].name]],
-        "type": "select",
-        "num": num
-    }, {
-        "label": "Pesel / seria i nr dow. os / seria i nr paszportu członka rodziny:",
-        "prefix": textboxIdPrefix.relativeDocumentID,
-        "id": textboxIdPrefix.relativeDocumentID + num,
-        "name": "relativeDocumentIDTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeDocumentID + num,
-        "type": "text",
-        "minlength": 0,
-        "maxlength": 11,
-        "required": true,
-        "date": false,
-        "digits": false,
-        "num": num
-    }, {
-        "label": "Pokrewienstwo członka rodziny:",
-        "prefix": textboxIdPrefix.relativeRelationship,
-        "id": textboxIdPrefix.relativeRelationship + num,
-        "name": "relativeRelationshipTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeRelationship + num,
-        "required": true,
-        "choices": [["", ""], [relationshipOptions[0].name, relationshipOptions[0].name], [relationshipOptions[1].name, relationshipOptions[1].name], [relationshipOptions[2].name, relationshipOptions[2].name], [relationshipOptions[3].name, relationshipOptions[3].name], [relationshipOptions[4].name, relationshipOptions[4].name], [relationshipOptions[5].name, relationshipOptions[5].name], [relationshipOptions[6].name, relationshipOptions[6].name], [relationshipOptions[7].name, relationshipOptions[7].name], [relationshipOptions[8].name, relationshipOptions[8].name], [relationshipOptions[9].name, relationshipOptions[9].name], [relationshipOptions[10].name, relationshipOptions[10].name]],
-        "type": "select",
-        "num": num
-    }, {
-        "label": "Niepełnosprawność członka rodziny:",
-        "prefix": textboxIdPrefix.relativeDisability,
-        "id": textboxIdPrefix.relativeDisability + num,
-        "name": "relativeDisabilityTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeDisability + num,
-        "required": true,
-        "choices": [["", ""], [disabilityOptions[0].name, disabilityOptions[0].name], [disabilityOptions[1].name, disabilityOptions[1].name], [disabilityOptions[2].name, disabilityOptions[2].name], [disabilityOptions[3].name, disabilityOptions[3].name], [disabilityOptions[4].name, disabilityOptions[4].name]],
-        "type": "select",
-        "num": num
-    }];
+                "value": num + ". DANE O CZŁONKU RODZINY, UPRAWNIONYM DO ŚWIADCZEŃ Z UBEZPIECZENIA ZDROWOTNEGO",
+                "class": "",
+                "type": "head",
+                "formId": formGroupIdPrefix.relativeIdentificationSectionTitle + num
+            }, {
+                "label": "Imię członka rodziny:",
+                "prefix": textboxIdPrefix.relativeName,
+                "id": textboxIdPrefix.relativeName + num,
+                "name": "relativeNameTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeName + num,
+                "type": "text",
+                "minlength": 0,
+                "maxlength": 29,
+                "required": true,
+                "date": false,
+                "digits": false,
+                "num": num
+            }, {
+                "label": "Nazwisko członka rodziny:",
+                "prefix": textboxIdPrefix.relativeSurname,
+                "id": textboxIdPrefix.relativeSurname + num,
+                "name": "relativeSurnameTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeSurname + num,
+                "type": "text",
+                "minlength": 0,
+                "maxlength": 29,
+                "required": true,
+                "date": false,
+                "digits": false,
+                "num": num
+            }, {
+                "label": "Data urodzenia członka rodziny: (dd-mm-rrrr)",
+                "prefix": textboxIdPrefix.relativeBirth,
+                "id": textboxIdPrefix.relativeBirth + num,
+                "name": "relativeBirthTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeBirth + num,
+                "type": "text",
+                "minlength": 10,
+                "maxlength": 10,
+                "required": true,
+                "date": true,
+                "digits": false,
+                "num": num
+            }, {
+                "label": "Pozostaje we wspólnym gospodarstwie domowym z pracownikiem:",
+                "prefix": textboxIdPrefix.relativeCommonGround,
+                "id": textboxIdPrefix.relativeCommonGround + num,
+                "name": "relativeCommonGroundTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeCommonGround + num,
+                "required": true,
+                "choices": [["", ""], [yesNoOptions.yes.value, yesNoOptions.yes.name], [yesNoOptions.no.value, yesNoOptions.no.name]],
+                "type": "select",
+                "num": num
+            }, {
+                "label": "Czy członek rodziny posiada pesel:",
+                "prefix": textboxIdPrefix.relativePesel,
+                "id": textboxIdPrefix.relativePesel + num,
+                "name": "relativePeselTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativePesel + num,
+                "required": true,
+                "choices": [["", ""], [yesNoOptions.yes.value, yesNoOptions.yes.name], [yesNoOptions.no.value, yesNoOptions.no.name]],
+                "type": "select",
+                "num": num
+            }, {
+                "label": "Rodzaj identyfikacji:",
+                "prefix": textboxIdPrefix.relativeDocument1,
+                "id": textboxIdPrefix.relativeDocument1 + num,
+                "name": "relativeDocument1TextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeDocument1 + num,
+                "required": true,
+                "choices": [[idOptions[0].value, idOptions[0].name]],
+                "type": "select",
+                "num": num
+            }, {
+                "label": "Rodzaj identyfikacji:",
+                "prefix": textboxIdPrefix.relativeDocument2,
+                "id": textboxIdPrefix.relativeDocument2 + num,
+                "name": "relativeDocument2TextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeDocument2 + num,
+                "required": true,
+                "choices": [["", ""], [idOptions[1].value, idOptions[1].name], [idOptions[2].value, idOptions[2].name]],
+                "type": "select",
+                "num": num
+            }, {
+                "label": "Pesel / seria i nr dow. os / seria i nr paszportu członka rodziny:",
+                "prefix": textboxIdPrefix.relativeDocumentID,
+                "id": textboxIdPrefix.relativeDocumentID + num,
+                "name": "relativeDocumentIDTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeDocumentID + num,
+                "type": "text",
+                "minlength": 0,
+                "maxlength": 11,
+                "required": true,
+                "date": false,
+                "digits": false,
+                "num": num
+            }, {
+                "label": "Pokrewienstwo członka rodziny:",
+                "prefix": textboxIdPrefix.relativeRelationship,
+                "id": textboxIdPrefix.relativeRelationship + num,
+                "name": "relativeRelationshipTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeRelationship + num,
+                "required": true,
+                "choices": [["", ""], [relationshipOptions[0].name, relationshipOptions[0].name], [relationshipOptions[1].name, relationshipOptions[1].name], [relationshipOptions[2].name, relationshipOptions[2].name], [relationshipOptions[3].name, relationshipOptions[3].name], [relationshipOptions[4].name, relationshipOptions[4].name], [relationshipOptions[5].name, relationshipOptions[5].name], [relationshipOptions[6].name, relationshipOptions[6].name], [relationshipOptions[7].name, relationshipOptions[7].name], [relationshipOptions[8].name, relationshipOptions[8].name], [relationshipOptions[9].name, relationshipOptions[9].name], [relationshipOptions[10].name, relationshipOptions[10].name]],
+                "type": "select",
+                "num": num
+            }, {
+                "label": "Niepełnosprawność członka rodziny:",
+                "prefix": textboxIdPrefix.relativeDisability,
+                "id": textboxIdPrefix.relativeDisability + num,
+                "name": "relativeDisabilityTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeDisability + num,
+                "required": true,
+                "choices": [["", ""], [disabilityOptions[0].name, disabilityOptions[0].name], [disabilityOptions[1].name, disabilityOptions[1].name], [disabilityOptions[2].name, disabilityOptions[2].name], [disabilityOptions[3].name, disabilityOptions[3].name], [disabilityOptions[4].name, disabilityOptions[4].name]],
+                "type": "select",
+                "num": num
+            }];
 };
 
 var relativeAddressSection = function relativeAddressSection(num) {
     return [{
-        "value": num + ".1. ADRES ZAMIESZKANIA CZŁONKA RODZINY",
-        "valueAdd": "(wpisać, jeśli adres zamieszkania zgłaszanego członka rodziny jest inny, niż adres zamieszkania ubezpieczonego)",
-        "class": "",
-        "classAdd": "error",
-        "type": "head2",
-        "formId": formGroupIdPrefix.relativeAddressSectionTitle + num,
-        "num": num
-    }, {
-        "label": "Województwo członka rodziny:",
-        "prefix": textboxIdPrefix.relativeVoivodeship,
-        "id": textboxIdPrefix.relativeVoivodeship + num,
-        "name": "relativeVoivodeshipTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeVoivodeship + num,
-        "required": true,
-        "choices": [["", ""], [voivodeshipOptions[0].value, voivodeshipOptions[0].name], [voivodeshipOptions[1].value, voivodeshipOptions[1].name], [voivodeshipOptions[2].value, voivodeshipOptions[2].name], [voivodeshipOptions[3].value, voivodeshipOptions[3].name], [voivodeshipOptions[4].value, voivodeshipOptions[4].name], [voivodeshipOptions[5].value, voivodeshipOptions[5].name], [voivodeshipOptions[6].value, voivodeshipOptions[6].name], [voivodeshipOptions[7].value, voivodeshipOptions[7].name], [voivodeshipOptions[8].value, voivodeshipOptions[8].name], [voivodeshipOptions[9].value, voivodeshipOptions[9].name], [voivodeshipOptions[10].value, voivodeshipOptions[10].name], [voivodeshipOptions[11].value, voivodeshipOptions[11].name], [voivodeshipOptions[12].value, voivodeshipOptions[12].name], [voivodeshipOptions[13].value, voivodeshipOptions[13].name], [voivodeshipOptions[14].value, voivodeshipOptions[14].name], [voivodeshipOptions[15].value, voivodeshipOptions[15].name]],
-        "type": "select",
-        "num": num
-    }, {
-        "label": "Gmina członka rodziny:",
-        "prefix": textboxIdPrefix.relativeCommunity,
-        "id": textboxIdPrefix.relativeCommunity + num,
-        "name": "relativeCommunityTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeCommunity + num,
-        "type": "text",
-        "minlength": 0,
-        "maxlength": 29,
-        "required": true,
-        "date": false,
-        "digits": false,
-        "num": num
-    }, {
-        "label": "Miejscowość członka rodziny:",
-        "prefix": textboxIdPrefix.relativePlace,
-        "id": textboxIdPrefix.relativePlace + num,
-        "name": "relativePlaceTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativePlace + num,
-        "type": "text",
-        "minlength": 0,
-        "maxlength": 22,
-        "required": true,
-        "date": false,
-        "digits": false,
-        "num": num
-    }, {
-        "label": "Kod pocztowy członka rodziny:",
-        "prefix": textboxIdPrefix.relativePostal,
-        "id": textboxIdPrefix.relativePostal + num,
-        "name": "relativePostalTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativePostal + num,
-        "type": "text",
-        "minlength": 6,
-        "maxlength": 6,
-        "required": true,
-        "date": false,
-        "digits": false,
-        "num": num
-    }, {
-        "label": "Ulica członka rodziny:",
-        "prefix": textboxIdPrefix.relativeStreet,
-        "id": textboxIdPrefix.relativeStreet + num,
-        "name": "relativeStreetTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeStreet + num,
-        "type": "text",
-        "minlength": 0,
-        "maxlength": 29,
-        "required": true,
-        "date": false,
-        "digits": false,
-        "num": num
-    }, {
-        "label": "Numer domu członka rodziny:",
-        "prefix": textboxIdPrefix.relativeFlatNumber,
-        "id": textboxIdPrefix.relativeFlatNumber + num,
-        "name": "relativeFlatNumberTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeFlatNumber + num,
-        "type": "text",
-        "minlength": 0,
-        "maxlength": 8,
-        "required": true,
-        "date": false,
-        "digits": false,
-        "num": num
-    }, {
-        "label": "Numer lokalu członka rodziny:",
-        "prefix": textboxIdPrefix.relativeApartmentNumber,
-        "id": textboxIdPrefix.relativeApartmentNumber + num,
-        "name": "relativeApartmentNumberTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeApartmentNumber + num,
-        "type": "text",
-        "minlength": 0,
-        "maxlength": 5,
-        "required": true,
-        "date": false,
-        "digits": false,
-        "num": num
-    }, {
-        "label": "Numer telefonu członka rodziny:",
-        "prefix": textboxIdPrefix.relativeTelephoneNumber,
-        "id": textboxIdPrefix.relativeTelephoneNumber + num,
-        "name": "relativeTelephoneNumberTextboxNumber" + num,
-        "formId": formGroupIdPrefix.relativeTelephoneNumber + num,
-        "type": "text",
-        "minlength": 0,
-        "maxlength": 14,
-        "required": false,
-        "date": false,
-        "digits": false,
-        "num": num
-    }];
+                "value": num + ".1. ADRES ZAMIESZKANIA CZŁONKA RODZINY",
+                "valueAdd": "(wpisać, jeśli adres zamieszkania zgłaszanego członka rodziny jest inny, niż adres zamieszkania ubezpieczonego)",
+                "class": "",
+                "classAdd": "error",
+                "type": "head2",
+                "formId": formGroupIdPrefix.relativeAddressSectionTitle + num,
+                "num": num
+            }, {
+                "label": "Województwo członka rodziny:",
+                "prefix": textboxIdPrefix.relativeVoivodeship,
+                "id": textboxIdPrefix.relativeVoivodeship + num,
+                "name": "relativeVoivodeshipTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeVoivodeship + num,
+                "required": true,
+                "choices": [["", ""], [voivodeshipOptions[0].value, voivodeshipOptions[0].name], [voivodeshipOptions[1].value, voivodeshipOptions[1].name], [voivodeshipOptions[2].value, voivodeshipOptions[2].name], [voivodeshipOptions[3].value, voivodeshipOptions[3].name], [voivodeshipOptions[4].value, voivodeshipOptions[4].name], [voivodeshipOptions[5].value, voivodeshipOptions[5].name], [voivodeshipOptions[6].value, voivodeshipOptions[6].name], [voivodeshipOptions[7].value, voivodeshipOptions[7].name], [voivodeshipOptions[8].value, voivodeshipOptions[8].name], [voivodeshipOptions[9].value, voivodeshipOptions[9].name], [voivodeshipOptions[10].value, voivodeshipOptions[10].name], [voivodeshipOptions[11].value, voivodeshipOptions[11].name], [voivodeshipOptions[12].value, voivodeshipOptions[12].name], [voivodeshipOptions[13].value, voivodeshipOptions[13].name], [voivodeshipOptions[14].value, voivodeshipOptions[14].name], [voivodeshipOptions[15].value, voivodeshipOptions[15].name]],
+                "type": "select",
+                "num": num
+            }, {
+                "label": "Gmina członka rodziny:",
+                "prefix": textboxIdPrefix.relativeCommunity,
+                "id": textboxIdPrefix.relativeCommunity + num,
+                "name": "relativeCommunityTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeCommunity + num,
+                "type": "text",
+                "minlength": 0,
+                "maxlength": 29,
+                "required": true,
+                "date": false,
+                "digits": false,
+                "num": num
+            }, {
+                "label": "Miejscowość członka rodziny:",
+                "prefix": textboxIdPrefix.relativePlace,
+                "id": textboxIdPrefix.relativePlace + num,
+                "name": "relativePlaceTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativePlace + num,
+                "type": "text",
+                "minlength": 0,
+                "maxlength": 22,
+                "required": true,
+                "date": false,
+                "digits": false,
+                "num": num
+            }, {
+                "label": "Kod pocztowy członka rodziny:",
+                "prefix": textboxIdPrefix.relativePostal,
+                "id": textboxIdPrefix.relativePostal + num,
+                "name": "relativePostalTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativePostal + num,
+                "type": "text",
+                "minlength": 6,
+                "maxlength": 6,
+                "required": true,
+                "date": false,
+                "digits": false,
+                "num": num
+            }, {
+                "label": "Ulica członka rodziny:",
+                "prefix": textboxIdPrefix.relativeStreet,
+                "id": textboxIdPrefix.relativeStreet + num,
+                "name": "relativeStreetTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeStreet + num,
+                "type": "text",
+                "minlength": 0,
+                "maxlength": 29,
+                "required": true,
+                "date": false,
+                "digits": false,
+                "num": num
+            }, {
+                "label": "Numer domu członka rodziny:",
+                "prefix": textboxIdPrefix.relativeFlatNumber,
+                "id": textboxIdPrefix.relativeFlatNumber + num,
+                "name": "relativeFlatNumberTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeFlatNumber + num,
+                "type": "text",
+                "minlength": 0,
+                "maxlength": 8,
+                "required": true,
+                "date": false,
+                "digits": false,
+                "num": num
+            }, {
+                "label": "Numer lokalu członka rodziny:",
+                "prefix": textboxIdPrefix.relativeApartmentNumber,
+                "id": textboxIdPrefix.relativeApartmentNumber + num,
+                "name": "relativeApartmentNumberTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeApartmentNumber + num,
+                "type": "text",
+                "minlength": 0,
+                "maxlength": 5,
+                "required": true,
+                "date": false,
+                "digits": false,
+                "num": num
+            }, {
+                "label": "Numer telefonu członka rodziny:",
+                "prefix": textboxIdPrefix.relativeTelephoneNumber,
+                "id": textboxIdPrefix.relativeTelephoneNumber + num,
+                "name": "relativeTelephoneNumberTextboxNumber" + num,
+                "formId": formGroupIdPrefix.relativeTelephoneNumber + num,
+                "type": "text",
+                "minlength": 0,
+                "maxlength": 14,
+                "required": false,
+                "date": false,
+                "digits": false,
+                "num": num
+            }];
 };
 
 var locationIdentificationSection = function locationIdentificationSection(num) {
     return [{
-        "value": num + ". OŚWIADCZENIE OSOBY ZGŁASZAJĄCEJ DANE",
-        "class": "",
-        "type": "head",
-        "formId": formGroupIdPrefix.locationSectionTitle + num,
-        "num": num
-    }, {
-        "label": "Miejsce oświadczenia (miejscowość):",
-        "prefix": textboxIdPrefix.spreadsheetLocation,
-        "id": "spreadsheetLocationTextboxID" + num,
-        "name": "spreadsheetLocationNumber" + num,
-        "formId": formGroupIdPrefix.spreadsheetLocation + num,
-        "type": "text",
-        "minlength": 0,
-        "maxlength": 29,
-        "required": true,
-        "date": false,
-        "digits": false,
-        "num": num
-    }];
+                "value": num + ". OŚWIADCZENIE OSOBY ZGŁASZAJĄCEJ DANE",
+                "class": "",
+                "type": "head",
+                "formId": formGroupIdPrefix.locationSectionTitle + num,
+                "num": num
+            }, {
+                "label": "Miejsce oświadczenia (miejscowość):",
+                "prefix": textboxIdPrefix.spreadsheetLocation,
+                "id": "spreadsheetLocationTextboxID" + num,
+                "name": "spreadsheetLocationNumber" + num,
+                "formId": formGroupIdPrefix.spreadsheetLocation + num,
+                "type": "text",
+                "minlength": 0,
+                "maxlength": 29,
+                "required": true,
+                "date": false,
+                "digits": false,
+                "num": num
+            }];
 };
 
 var generationSection = function generationSection(num) {
     return [{
-        "value": "Wygeneruj:",
-        "class": "",
-        "type": "head",
-        "formId": formGroupIdPrefix.generationSectionTitle + num,
-        "num": num
-    }, {
-        "label": "Generuj z danymi",
-        "id": "spreadsheetWithDataButton" + num,
-        "type": "submit",
-        "class": "btn btn-primary w-100 h-5 my-3",
-        "num": num
-    }, {
-        "label": "Generuj pusty",
-        "id": "spreadsheetEmptyButton" + num,
-        "type": "button",
-        "class": "btn btn-primary w-100 h-5 my-2",
-        "num": num
-    }];
+                "value": "Wygeneruj:",
+                "class": "",
+                "type": "head",
+                "formId": formGroupIdPrefix.generationSectionTitle + num,
+                "num": num
+            }, {
+                "label": "Generuj z danymi",
+                "id": "spreadsheetWithDataButton" + num,
+                "type": "submit",
+                "class": "btn btn-primary w-100 h-5 my-3",
+                "num": num
+            }, {
+                "label": "Generuj pusty",
+                "id": "spreadsheetEmptyButton" + num,
+                "type": "button",
+                "class": "btn btn-primary w-100 h-5 my-2",
+                "num": num
+            }];
 };
 
 var xlsxAddress = function xlsxAddress(n) {
@@ -530,93 +571,117 @@ function dataGet(formArray) {
     locationIdentification.push(locationIdentificationDataGet(formArray, sectionsCount));
 
     return { "employeeIdentification": employeeIdentification,
-        "relativeIdentification": relativeIdentification,
-        "locationIdentification": locationIdentification };
+             "relativeIdentification": relativeIdentification,
+             "locationIdentification": locationIdentification };
 }
 
 function EmployeeIdentification() {
-    var date, relativesCount, id, name, surname;
+    var date, 
+        relativesCount, 
+        id, 
+        name, 
+        surname;
 }
 
 function RelativeIdentification() {
-    var name, surname, peselCheck, pesel, birth, commonGround, idNum, idType, idId, relationship, relationshipId, disability, disabilityId, voivodeship, community, place, postal, street, flatNum, apartmentNum, telephone;
+    var name, 
+        surname, 
+        peselCheck, 
+        pesel, 
+        birth, 
+        commonGround, 
+        idNum, 
+        idType, 
+        idId, 
+        relationship, 
+        relationshipId, 
+        disability, 
+        disabilityId, 
+        voivodeship, 
+        community, 
+        place, 
+        postal, 
+        street, 
+        flatNum, 
+        apartmentNum, 
+        telephone;
 }
 function LocationIdentification() {
-    var date, place;
+    var date, 
+        place;
 }
 
 function employeeIdentificationDataGet(formArray, num) {
-    var employeeId = new EmployeeIdentification();
-    employeeId.date = dateToDDMMYYYY(new Date());
-    employeeId.relativesCount = relativesCount;
-    employeeId.id = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.employeeID,
-        "num": num })[0].id);
-    employeeId.name = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.employeeName,
-        "num": num })[0].id);
-    employeeId.surname = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.employeeSurname,
-        "num": num })[0].id);
+    var employeeId                  = new EmployeeIdentification();
+        employeeId.date             = dateToDDMMYYYY(new Date());
+        employeeId.relativesCount   = relativesCount;
+        employeeId.id               = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.employeeID,
+                                                                                "num": num })[0].id);
+        employeeId.name             = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.employeeName,
+                                                                                "num": num })[0].id);
+        employeeId.surname          = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.employeeSurname,
+                                                                                "num": num })[0].id);
     return employeeId;
 }
 
 function locationIdentificationDataGet(formArray, num) {
-    var locationId = new LocationIdentification();
-    locationId.date = dateToDDMMYYYY(new Date());
-    locationId.place = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.spreadsheetLocation,
-        "num": num })[0].id);
+    var locationId                  = new LocationIdentification();
+        locationId.date             = dateToDDMMYYYY(new Date());
+        locationId.place            = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.spreadsheetLocation,
+                                                                                "num": num })[0].id);
     return locationId;
 }
 
 function relativeIdentificationDataGet(formArray, num) {
     var peselTemp;
-
-    var relativeId = new RelativeIdentification();
-    relativeId.name = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeName,
-        "num": num })[0].id);
-    relativeId.surname = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeSurname,
-        "num": num })[0].id);
-    relativeId.birth = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeBirth,
-        "num": num })[0].id);
-    relativeId.commonGround = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeCommonGround,
-        "num": num })[0].id);
-    relativeId.peselCheck = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativePesel,
-        "num": num })[0].id);
-    if (relativeId.peselCheck == yesNoOptions.yes.value) {
-        relativeId.pesel = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeDocumentID,
-            "num": num })[0].id);
-        relativeId.idNum = "";
-        relativeId.idType = "";
-        relativeId.idId = "";
+    var relativeId                  = new RelativeIdentification();
+        relativeId.name             = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeName,
+                                                                                "num": num })[0].id);
+        relativeId.surname          = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeSurname,
+                                                                                "num": num })[0].id);
+        relativeId.birth            = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeBirth,
+                                                                                "num": num })[0].id);
+        relativeId.commonGround     = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeCommonGround,
+                                                                                "num": num })[0].id);
+        relativeId.peselCheck       = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativePesel,
+                                                                                "num": num })[0].id);
+    if ( relativeId.peselCheck      == yesNoOptions.yes.value ) {
+        relativeId.pesel            = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeDocumentID,
+                                                                                "num": num })[0].id);
+        relativeId.idNum            = "";
+        relativeId.idType           = "";
+        relativeId.idId             = "";
     } else {
-        relativeId.pesel = "";
-        relativeId.idNum = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeDocumentID,
-            "num": num })[0].id);
-        relativeId.idType = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeDocument2,
-            "num": num })[0].id);
-        relativeId.idId = underscore.where(idOptions, { "value": relativeId.idType })[0].id;
+        relativeId.pesel            = "";
+        relativeId.idNum            = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeDocumentID,
+                                                                                "num": num })[0].id);
+        relativeId.idType           = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeDocument2,
+                                                                                "num": num })[0].id);
+        relativeId.idId             = underscore.where(idOptions,           {   "value": relativeId.idType })[0].id;
     }
-    relativeId.relationship = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeRelationship,
-        "num": num })[0].id);
-    relativeId.relationshipId = underscore.where(relationshipOptions, { "name": relativeId.relationship })[0].code;
-    relativeId.disability = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeDisability,
-        "num": num })[0].id);
-    relativeId.disabilityId = underscore.where(disabilityOptions, { "name": relativeId.disability })[0].code;
-    if (relativeId.commonGround == yesNoOptions.no.value) {
-        relativeId.voivodeship = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeVoivodeship,
-            "num": num })[0].id);
-        relativeId.community = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeCommunity,
-            "num": num })[0].id);
-        relativeId.place = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativePlace,
-            "num": num })[0].id);
-        relativeId.postal = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativePostal,
-            "num": num })[0].id);
-        relativeId.street = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeStreet,
-            "num": num })[0].id);
-        relativeId.flatNum = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeFlatNumber,
-            "num": num })[0].id);
-        relativeId.apartmentNum = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeApartmentNumber,
-            "num": num })[0].id);
-        relativeId.telephone = valueById(underscore.where(formArray, { "prefix": textboxIdPrefix.relativeTelephoneNumber,
-            "num": num })[0].id);
+        relativeId.relationship     = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeRelationship,
+                                                                                "num": num })[0].id);
+        relativeId.relationshipId   = underscore.where(relationshipOptions, {   "name": relativeId.relationship })[0].code;
+        relativeId.disability       = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeDisability,
+                                                                                "num": num })[0].id);
+        relativeId.disabilityId     = underscore.where(disabilityOptions,   {   "name": relativeId.disability })[0].code;
+    if (relativeId.commonGround     == yesNoOptions.no.value) {
+        relativeId.voivodeship      = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeVoivodeship,
+                                                                                "num": num })[0].id);
+        relativeId.community        = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeCommunity,
+                                                                                "num": num })[0].id);
+        relativeId.place            = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativePlace,
+                                                                                "num": num })[0].id);
+        relativeId.postal           = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativePostal,
+                                                                                "num": num })[0].id);
+        relativeId.street           = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeStreet,
+                                                                                "num": num })[0].id);
+        relativeId.flatNum          = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeFlatNumber,
+                                                                                "num": num })[0].id);
+        relativeId.apartmentNum     = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeApartmentNumber,
+                                                                                "num": num })[0].id);
+        relativeId.telephone        = valueById(underscore.where(formArray, {   "prefix": textboxIdPrefix.relativeTelephoneNumber,
+                                                                                "num": num })[0].id);
     }
     return relativeId;
 }
@@ -630,7 +695,13 @@ function mapCreator(formArray) {
     formArray.forEach(function (entry) {
         if (entry.type == "head" || entry.type == "head2") {
 
-            result += "<a style=\"display: block;\" id=\"" + entry.formId + "Map" + "\" href='javascript:scrollToId(\"" + entry.formId + "\")'>" + entry.value + "<a/></br>";
+            result += "<a style=\"display: block;\" id=\"" 
+                    + entry.formId 
+                    + "Map" 
+                    + "\" href='javascript:scrollToId(\"" 
+                    + entry.formId + "\")'>" 
+                    + entry.value 
+                    + "<a/></br>";
         }
     });
     return result;
@@ -850,13 +921,9 @@ function xlsxDataWrite(workbook, data) {
                 writeContent(sheet, data.relativeIdentification[i].flatNum, rn, 5);
                 writeContent(sheet, data.relativeIdentification[i].apartmentNum, rn, 14);
                 writeContent(sheet, data.relativeIdentification[i].telephone, rn, 20);
-            } else {
-                rn += 11;
-            }
+            } else { rn += 11; }
         }
-    } else {
-        rn += 4;
-    }
+    } else { rn += 4; }
 
     rn += 15;
     writeContent(sheet, data.locationIdentification[0].place, rn, 5, 22);
@@ -1017,7 +1084,9 @@ function dateToDDMMYYYY(date) {
 }
 
 function dateCleanSeparators(date) {
-    return date.charAt(0) + date.charAt(1) + date.charAt(3) + date.charAt(4) + date.charAt(6) + date.charAt(7) + date.charAt(8) + date.charAt(9);
+    return      date.charAt(0) + date.charAt(1) 
+            +   date.charAt(3) + date.charAt(4) 
+            +   date.charAt(6) + date.charAt(7) + date.charAt(8) + date.charAt(9);
 }
 
 $.validator.methods.date = function (value, element) {
