@@ -7,14 +7,14 @@ Here you can check out the live version:
 Screenshots
 ========
 <div>
-<img src="http://i.imgur.com/8ESPjJK.png" alt="app-preview" width="470" height="317">
+<img src="http://i.imgur.com/8ESPjJK.png" alt="app-preview" width="55%" height="55%">
 </div>
 
 How it works
 ========
 Everything works in browser. Data is stored on the client side, browser request for template xlsx file then it is filled and returned. As seen on the diagram below:
 <div>
-<img src="http://i.imgur.com/3gRU5a0h.jpg" alt="diagram-preview" width="512" height="343">
+<img src="http://i.imgur.com/3gRU5a0h.jpg" alt="diagram-preview" width="55%" height="55%">
 </div>
 
 Deployment
